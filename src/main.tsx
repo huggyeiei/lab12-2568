@@ -9,7 +9,7 @@ const theme = createTheme({
   fontFamily: "Open Sans, sans-serif",
   colors: {
     chanadda: virtualColor({
-      name: "chanadda",
+      name: "Naphat",
       dark: "pink",
       light: "cyan",
     }),
