@@ -8,17 +8,17 @@ import { MantineProvider, createTheme, virtualColor } from "@mantine/core";
 const theme = createTheme({
   fontFamily: "Open Sans, sans-serif",
   colors: {
-    chanadda: virtualColor({
-      name: "Naphat",
-      dark: "pink",
-      light: "cyan",
+    huggy: virtualColor({
+      name: "Huggy",
+      dark: "yellow",
+      light: "violet",
     }),
   },
 });
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <MantineProvider theme={theme}>
+    <MantineProvider theme={theme} defaultColorScheme="auto">
       <RouterProvider router={router} />
     </MantineProvider>
   </React.StrictMode>

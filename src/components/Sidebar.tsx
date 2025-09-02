@@ -8,12 +8,34 @@ import {
   Text,
   Group,
 } from "@mantine/core";
-interface SidebarProps  {
+interface SidebarComponentProps  {
   userName: string;
   type?: "admin" |"student";
 }
-export type { SidebarProps };
-export default function Sidebar({userName}: SidebarProps) {
+
+function SidebarComponent({userName, type}: SidebarComponentProps){
+  return (
+    <Box p={8}>
+      <Group>
+        <Indicator
+          color={type === "admin" ? "blue" : "orange"}  
+          size={12}
+          offset={5}
+          disabled={!type}
+          position="bottom-end"
+          withBorder
+          >
+          <Avatar radius="xl" color="cyan" src="/public/My pic.jpg" />
+        </Indicator>
+        <Text>User : {userName} : {type === "admin" ? "Admin" : "Student"}</Text>
+      </Group>
+    </Box>
+  );
+}
+
+
+export type { SidebarComponentProps };
+export default function Sidebar() {
   return (
     <Stack
       align="stretch"
@@ -43,23 +65,7 @@ export default function Sidebar({userName}: SidebarProps) {
       </Box>
       {/* แสดงผู้ใช้งาน */}
       <Box p={10}>
-        <Group>
-          <Indicator
-            color = "red"
-            offset = {4} withBorder
-            position = "bottom-end"
-            size = "15"
-            inline
-          >
-              <Avatar
-                size = "42"
-                radius = "xl"
-                src= "/mypic.jpg"
-              />
-            </Indicator>
-            <Text>{userName}</Text>
-        </Group>
-        
+        <SidebarComponent userName="Huggy" type="student" />
       </Box>
     </Stack>
   );
